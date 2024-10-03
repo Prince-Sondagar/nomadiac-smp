@@ -1,0 +1,80 @@
+query FetchPaymentWithdrawals(
+  $paymentWithdrawalsInput: FetchPaymentWithdrawalsInput!
+) {
+  fetchPaymentWithdrawals(paymentWithdrawalsInput: $paymentWithdrawalsInput) {
+    paymentWithdrawals {
+      id
+      status
+      panelistId
+      points
+      type
+      panelist {
+        id
+        phone
+        address
+        city
+        state
+        zipCode
+        gender
+        user {
+          firstName
+          lastName
+        }
+      }
+      createdAt
+      updatedAt
+    }
+    pagination {
+      page
+      limit
+      totalCount
+      totalPages
+    }
+  }
+}
+
+mutation UpdatePaymentWithdrawals(
+  $paymentWithdrawalInput: UpdatePaymentWithdrawalRequest!
+) {
+  updatePaymentWithdrawals(paymentWithdrawalInput: $paymentWithdrawalInput) {
+    response {
+      status
+      error
+      message
+    }
+    paymentWithdrawal {
+      id
+      status
+      panelistId
+      points
+    }
+  }
+}
+
+mutation RemovePaymentWithdrawals(
+  $paymentWithdrawalInput: RemovePaymentWithdrawalRequest!
+) {
+  removePaymentWithdrawals(paymentWithdrawalInput: $paymentWithdrawalInput) {
+    response {
+      status
+      message
+      name
+    }
+  }
+}
+
+mutation BulkUpdatePaymentWithdrawalRequest(
+  $bulkUpdatePaymentWithdrawalRequest: BulkUpdatePaymentWithdrawalRequest!
+) {
+  bulkUpdatePaymentWithdrawalRequest(
+    bulkUpdatePaymentWithdrawalRequest: $bulkUpdatePaymentWithdrawalRequest
+  ) {
+    response {
+      status
+      error
+      message
+      name
+    }
+    errors
+  }
+}

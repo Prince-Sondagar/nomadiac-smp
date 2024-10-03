@@ -1,0 +1,57 @@
+mutation CreateCompany($companyInput: CreateCompanyInput!) {
+  createCompany(companyInput: $companyInput) {
+    response {
+      status
+      message
+      error
+    }
+    company {
+      id
+      email
+      name
+      clientNumber
+    }
+  }
+}
+
+query FetchAllCompanies($companiesInput: FetchCompaniesInput!) {
+  fetchAllCompanies(companiesInput: $companiesInput) {
+    response {
+      status
+      message
+      error
+    }
+    pagination {
+      totalPages
+      totalCount
+      page
+      limit
+    }
+    companies {
+      id
+      name
+      email
+      clientNumber
+    }
+  }
+}
+
+mutation RemoveCompany($companyInput: RemoveCompanyInput!) {
+  removeCompany(companyInput: $companyInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateCompany($companyInput: UpdateCompanyInput!) {
+  updateCompany(companyInput: $companyInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}

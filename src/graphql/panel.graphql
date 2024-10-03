@@ -1,0 +1,172 @@
+query FetchAllPanelists($fetchPanelistsInput: FetchPanelistsInput!) {
+  fetchAllPanelists(fetchPanelistsInput: $fetchPanelistsInput) {
+    response {
+      status
+      error
+      message
+    }
+    pagination {
+      page
+      limit
+      totalCount
+      totalPages
+    }
+    panelists {
+      id
+      phone
+      address
+      city
+      state
+      zipCode
+      gender
+      dob
+      country
+      userId
+      blockPromotions
+      timezone
+      verifyTokenExpired
+      panelistReviewStatus
+      fraudScore
+      scamalyticsScore
+      availablePoints
+      ipAddress
+
+      user {
+        id
+        firstName
+        lastName
+        status
+        emailVerified
+        email
+        roles {
+          id
+          role
+        }
+      }
+      attachments {
+        url
+        typeId
+        type
+        id
+        key
+        createdAt
+        description
+        updatedAt
+      }
+
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+query FetchPanelist($fetchPanelistInput: FetchPanelistInput!) {
+  fetchPanelist(fetchPanelistInput: $fetchPanelistInput) {
+    response {
+      status
+      error
+      message
+    }
+    panelist {
+      id
+      phone
+      address
+      city
+      state
+      zipCode
+      gender
+      dob
+      userId
+      blockPromotions
+      panelistReviewStatus
+      timezone
+      availablePoints
+      ipAddress
+
+      attachments {
+        id
+        typeId
+        type
+        description
+        key
+        url
+        createdAt
+        updatedAt
+      }
+
+      user {
+        id
+        firstName
+        lastName
+        status
+        emailVerified
+        email
+        roles {
+          id
+          role
+        }
+      }
+
+      signupSurveyResponse {
+        id
+        question
+        answer
+        createdAt
+        updatedAt
+      }
+
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation RemovePanelist($removePanelistInput: RemovePanelistInput!) {
+  removePanelist(removePanelistInput: $removePanelistInput) {
+    response {
+      status
+      error
+      message
+    }
+  }
+}
+
+mutation UpdatePanelist($updatePanelistInput: UpdatePanelistInput!) {
+  updatePanelist(updatePanelistInput: $updatePanelistInput) {
+    response {
+      status
+      error
+      message
+    }
+  }
+}
+
+query GetAttachment($getMedia: GetMedia!) {
+  getAttachment(getMedia: $getMedia) {
+    preSignedUrl
+    response {
+      error
+      message
+      status
+    }
+  }
+}
+
+query FetchPanelistPointHistory($fetchPanelistPointHistory: FetchPanelistPointHistory!) {
+  fetchPanelistPointHistory(fetchPanelistPointHistory: $fetchPanelistPointHistory) {
+    pointHistory {
+      id
+      details
+      panelistId
+      points
+      createdAt
+      updatedAt
+    }
+    pagination {
+      page
+      limit
+      totalCount
+      totalPages
+    }
+  }
+}

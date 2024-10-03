@@ -1,0 +1,95 @@
+query FetchAllQuotas($fetchAllQuotasInput: FetchAllQuotasInput!) {
+  fetchAllQuotas(fetchAllQuotasInput: $fetchAllQuotasInput) {
+    response {
+      status
+      message
+      error
+    }
+    pagination {
+      totalPages
+      totalCount
+      page
+      limit
+    }
+    quota {
+      id
+      name
+      type
+    }
+  }
+}
+
+mutation AddQuotaGroupsToProject($projectInput: AddQuotaGroupsToProject!) {
+  addQuotaGroupsToProject(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+    project {
+      id
+      quotaGroup {
+        id
+        name
+        completeCap
+        completeCapLeft
+        
+        quota {
+          id
+          name
+          type
+        }
+      }
+    }
+  }
+}
+
+mutation RemoveQuotaGroup($removeQuotaGroupInput: RemoveQuotaGroupInput!) {
+  removeQuotaGroup(removeQuotaGroupInput: $removeQuotaGroupInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation RemoveSupplierFromQuotaGroup($removeSupplierToQuotaGroup: RemoveSupplierQuotaGroupInput!) {
+  removeSupplierFromQuotaGroup(removeSupplierToQuotaGroup: $removeSupplierToQuotaGroup) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateSupplierQuotaGroup($updateSupplierQuotaGroupInput: UpdateSupplierQuotaGroupInput!) {
+  updateSupplierQuotaGroup(updateSupplierQuotaGroupInput: $updateSupplierQuotaGroupInput) {
+    response {
+      message
+      error
+      status
+    }
+  }
+}
+
+mutation AddSupplierToQuotaGroup($createSupplierQuotaGroupInput: CreateSupplierQuotaGroupInput!) {
+  addSupplierToQuotaGroup(createSupplierQuotaGroupInput: $createSupplierQuotaGroupInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateQuotaGroup($updateQuotaGroupInput: UpdateQuotaGroupInput!) {
+  updateQuotaGroup(updateQuotaGroupInput: $updateQuotaGroupInput) {
+    response {
+      status
+      error
+      message
+    }
+  }
+}

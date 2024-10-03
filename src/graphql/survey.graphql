@@ -1,0 +1,80 @@
+query FetchSurveyResults($projectResult: FetchProjectResults!) {
+  fetchSurveyResults(projectResult: $projectResult) {
+    response {
+      status
+      error
+      message
+    }
+    pagination {
+      page
+      limit
+      totalCount
+      totalPages
+    }
+    results {
+      id
+      supplierQuotaGroup {
+        id
+        supplierId
+        quotaGroupId
+        completeCap
+        cpi
+        supplierCompleteCapLeft
+        createdAt 
+        updatedAt
+      }
+      surveySource
+      supplierQuotaGroupId
+      panelistId
+      projectId
+      surveyResultStatus
+      scamalyticsScore
+      defenderApiScore
+      ipAddress
+      surveyEndTime
+      surveyId
+      surveyId
+      transactionId 
+      cpi
+      dataQualityScore
+      maxMindScore
+      createdAt 
+      updatedAt
+    }
+  }
+}
+
+mutation RemoveSurveyResults($projectResult: ProjectResultIdInput!) {
+  removeSurveyResults(projectResult: $projectResult) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateSurveyResults($projectResult: UpdateProjectResultStatusInput!) {
+  updateSurveyResults(projectResult: $projectResult) {
+    response {
+      status
+      message
+      error
+    }
+    projectResult {
+      id
+      panelistId
+      surveyResultStatus
+    }
+  }
+}
+
+mutation UpdateSurveyResultWithIdReConciliation($projectResult: UpdateSurveyResultWithIdReConciliationInput!) {
+  updateSurveyResultWithIdReConciliation(projectResult: $projectResult) {
+    response {
+      status
+      error
+      message
+    }
+  }
+}

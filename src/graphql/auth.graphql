@@ -1,0 +1,143 @@
+mutation Login($loginUser: LoginUserInput!) {
+  login(loginUser: $loginUser) {
+    response {
+      status
+      message
+    }
+
+    access_token
+
+    roles {
+      id
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation ForgotPassword($forgotPassword: ForgotPasswordInput!) {
+  forgotPassword(forgotPassword: $forgotPassword) {
+    response {
+      status
+      message
+    }
+  }
+}
+
+query LoggedInUser {
+  me {
+    response {
+      status
+      message
+    }
+
+    user {
+      id
+      firstName
+      lastName
+      status
+      emailVerified
+      email
+      createdAt
+      updatedAt
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+query AllRoles {
+  fetchAllRoles {
+    response {
+      status
+      message
+    }
+
+    roles {
+      id
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation ResetPassword($resetPassword: ResetPasswordInput!) {
+  resetPassword(resetPassword: $resetPassword) {
+    response {
+      status
+      message
+    }
+  }
+}
+
+mutation ResendVerificationEmail($resendVerificationEmail: ResendVerificationEmail!) {
+  resendVerificationEmail(resendVerificationEmail: $resendVerificationEmail) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation VerifyEmailAndSetPassword($verifyEmailAndSetPassword: VerifyUserAndUpdatePasswordInput!) {
+  verifyEmailAndSetPassword(verifyEmailAndSetPassword: $verifyEmailAndSetPassword) {
+    response {
+      status
+      message
+    }
+
+    user {
+      id
+      firstName
+      lastName
+      status
+      emailVerified
+      email
+      createdAt
+      updatedAt
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+mutation RegisterUser($user: RegisterUserInput!) {
+  registerUser(user: $user) {
+    user {
+      id
+      firstName
+      lastName
+      status
+      emailVerified
+      email
+      createdAt
+      updatedAt
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+    
+    response {
+      error
+      status
+      message
+    }
+  }
+}

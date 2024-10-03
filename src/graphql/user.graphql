@@ -1,0 +1,272 @@
+query FetchAllUsers($usersInput: UsersInput!){
+  fetchAllUsers(userInput: $usersInput){
+    response {
+      status
+      message
+      error
+    }
+
+    users {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+
+    pagination {
+      page
+      limit
+      totalCount
+      totalPages
+    }
+  }
+}
+
+mutation DeactivateUser($userInput: UserIdInput!){
+  deactivateUser(user: $userInput){
+    response {
+      status
+      message
+      error
+    }
+
+    user {
+      id
+      firstName
+      lastName
+      status
+      email
+      emailVerified
+      createdAt
+      updatedAt
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+query FetchAllRoles {
+  fetchAllRoles {
+    response{
+      status
+      error
+      message
+    }
+    
+    roles{
+      id
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+mutation ActivateUser($userInput: UserIdInput!){
+  activateUser(user: $userInput){
+    response {
+      status
+      message
+      error
+    }
+
+    user {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+mutation UpdateRole($userInput: UpdateRoleInput!){
+  updateRole(user: $userInput){
+    response {
+      status
+      message
+      error
+    }
+
+    user {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+mutation UpdateUser($userInput: UpdateUserInput!){
+  updateUser(user: $userInput){
+    response {
+      status
+      error
+      message
+    }
+    
+     user {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+      
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+query GetUser($getUser: GetUser!){
+  getUser(getUser: $getUser){
+    response {
+      status
+      error
+      message
+    }
+    
+    user {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+      
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+
+    }
+  }
+}
+
+query SearchUser($searchUserInput: SearchUserInput!){
+  searchUser(searchUserInput:$searchUserInput){
+    response{
+      status
+      message
+    }
+    
+     users {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+
+  }
+}
+
+mutation UpdatePassword($updatePasswordInput: UpdatePasswordInput!){
+  updatePassword(updatePasswordInput: $updatePasswordInput){
+    response {
+      status
+      error
+      message
+    }
+    
+    user {
+      id
+      firstName
+      lastName
+      status
+      email
+      createdAt
+      updatedAt
+      emailVerified
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+mutation RemoveUser($userInput: UserIdInput!){
+  removeUser(user: $userInput){
+    response {
+      status
+      error
+      message
+    }
+    
+    user {
+      id
+    }
+  }
+}
+
+mutation CreateCpi($cpiInput: CreateCpiInput!) {
+  createCpi(cpiInput: $cpiInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}

@@ -1,0 +1,207 @@
+mutation CreateProject($projectInput: CreateProjectInput!) {
+  createProject(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateProject($projectInput: UpdateProjectInput!) {
+  updateProject(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation RemoveProject($project: ProjectIdInput!) {
+  removeProject(project: $project) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation CreateProjectUser($projectInput: CreateProjectUserInput!) {
+  createProjectUser(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+    projectUser {
+      id
+      userId
+      user {
+        id
+        firstName
+        lastName
+        roles {
+          id
+          role
+        }
+      }
+    }
+  }
+}
+
+mutation UpdateProjectUser($projectInput: UpdateProjectUserInput!) {
+  updateProjectUser(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation RemoveProjectUser($project: ProjectIdInput!) {
+  removeProjectUser(project: $project) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+query FetchProjectStats($project: ProjectIdInput!) {
+  fetchProjectStats(project: $project) {
+    response {
+      status
+      message
+      error
+    }
+    stats {
+      name
+      companyName
+      completedResponses
+      terminatedResponses
+      quotaResponses
+      securityTerminateResponses
+      initializedResponses
+      supplierCompleteCapLeft
+      completeCap
+      quotaGroupId
+    }
+  }
+}
+
+query FetchProject($project: ProjectIdInput!) {
+  fetchProject(project: $project) {
+    response {
+      status
+      message
+      error
+    }
+    project {
+      id
+      title
+      description
+      dataQuality
+      projectUsers {
+        id
+        userId
+        user {
+          firstName
+          lastName
+          roles {
+            id
+            role
+          }
+        }
+      }
+    }
+  }
+}
+
+query FetchAllProjects($projectInput: FetchProjectsInput!) {
+  fetchAllProjects(projectInput: $projectInput) {
+    response {
+      status
+      message
+      error
+    }
+    pagination {
+      totalPages
+      totalCount
+      page
+      limit
+    }
+    projects {
+      id
+      archive
+      title
+      description
+      code
+      email
+      lifecycle
+      methodology
+      clientId
+      security
+      dataQuality
+      client {
+        id
+        name
+        clientNumber
+      }
+      projectUsers {
+        id
+        isHeadManager
+        isSalesManager
+        userId
+        user {
+          id
+          firstName
+          lastName
+          roles {
+            id
+            role
+          }
+        }
+      }
+      quotaGroup {
+        id
+        name
+        projectId
+        surveyEntryLink
+        completeCap
+        completeCapLeft
+
+        quota {
+          id
+          name
+          type
+        }
+        
+        supplierQuotaGroup {
+          completeCap
+          completeLink
+          cpi
+          id
+          quotaFullLink
+          securityLink
+          terminateLink
+          quotaGroupId
+          securityLink
+          surveyEntryLink
+          supplierCompleteCapLeft
+          completeCap
+          supplierId
+          offerId
+          supplier {
+            id
+            name
+            companyName
+          }
+        }
+      }
+    }
+  }
+}

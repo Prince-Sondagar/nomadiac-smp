@@ -1,0 +1,30 @@
+query FetchCpiStats {
+  fetchCpiStats {
+    response {
+      status
+      error
+      message
+    }
+    revenue
+    netProfit
+  }
+}
+
+query FetchDashboardData {
+  fetchDashboardData {
+    response {
+      status
+      error
+      message
+    }
+    panelistsCountByDayGraphData {
+      day
+      count
+    }
+    panelistsCountByCountryGraphData {
+      country
+      count
+    }
+    activePanelists
+  }
+}

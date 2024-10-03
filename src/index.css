@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+}
+
+.MuiDrawer-root .MuiButtonBase-root.MuiListItemButton-root.Mui-selected {
+    background-color: #edced0;
+}
+
+.MuiDrawer-root .MuiButtonBase-root.MuiListItemButton-root.Mui-selected .MuiListItemText-root span,
+.MuiDrawer-root .MuiButtonBase-root.MuiListItemButton-root.Mui-selected .MuiListItemIcon-root {
+    color: #000;
+}
+
+.MuiTabs-root .MuiTabs-flexContainer {
+    display: block;
+}

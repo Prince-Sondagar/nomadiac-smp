@@ -1,0 +1,59 @@
+query FetchAllSuppliers($suppliersInput: FetchSuppliersInput!) {
+  fetchAllSuppliers(suppliersInput: $suppliersInput) {
+    response {
+      status
+      message
+      error
+    }
+    pagination {
+      totalPages
+      totalCount
+      page
+      limit
+    }
+    suppliers {
+      id
+      email
+      name
+      companyName
+      hashEnabled
+      hashPrivetKey
+      hashPrivetKeyVariableName
+      surveyEntryLink
+      completeLink
+      terminateLink
+      quotaFullLink
+      securityLink
+    }
+  }
+}
+
+mutation CreateSupplier($supplierInput: CreateSupplierInput!) {
+  createSupplier(supplierInput: $supplierInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation UpdateSupplier($supplierInput: UpdateSupplierInput!) {
+  updateSupplier(supplierInput: $supplierInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
+
+mutation RemoveSupplier($supplierInput: RemoveSupplierInput!) {
+  removeSupplier(supplierInput: $supplierInput) {
+    response {
+      status
+      message
+      error
+    }
+  }
+}
